@@ -1,0 +1,561 @@
+/* =========================================
+   PRIME PELE | MOBILE WAXING
+   Main Website Stylesheet
+   ========================================= */
+
+/* ---------- Colour Palette ---------- */
+
+:root {
+    --white: #FFFFFF;
+    --pink: #FFD5C9;
+    --light-pink: #FFEAE5;
+    --black: #111111;
+    --text-grey: #444444;
+    --border: #F1D8D2;
+}
+
+
+/* ---------- Reset ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Georgia, serif;
+    color: var(--black);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+    color: var(--text-grey);
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------- Main Sections ---------- */
+
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+
+/* ---------- Header / Navigation ---------- */
+
+header {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 18px 5%;
+    border-bottom: 1px solid var(--light-pink);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--black);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 8px 4px;
+
+    transition:
+        color 0.3s ease,
+        font-weight 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--pink);
+}
+
+/* Active page */
+
+.nav-links a.active {
+    color: var(--pink);
+    font-weight: 700;
+}
+
+
+/* ---------- Hero Section ---------- */
+
+.hero {
+    min-height: 420px;
+
+    background-color: var(--white);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    border-bottom: 1px solid var(--light-pink);
+}
+
+.hero-content {
+    max-width: 800px;
+    color: var(--black);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+
+    margin-bottom: 25px;
+
+    color: var(--text-grey);
+}
+
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    background-color: var(--pink);
+    color: var(--black);
+
+    padding: 14px 26px;
+
+    min-height: 48px;
+
+    border: 2px solid var(--pink);
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--light-pink);
+    border-color: var(--light-pink);
+
+    color: var(--black);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.10);
+}
+
+.btn:focus {
+    outline: 3px solid var(--pink);
+    outline-offset: 3px;
+}
+
+.arrow {
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+/* ---------- Section Titles ---------- */
+
+.section-title {
+    max-width: 750px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--text-grey);
+}
+
+
+/* ---------- Service Cards ---------- */
+
+.service-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+.service-card {
+    background-color: var(--light-pink);
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--black);
+}
+
+.service-card p {
+    color: var(--text-grey);
+}
+
+
+/* ---------- Contact Section ---------- */
+
+.contact-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* ---------- Forms ---------- */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 12px;
+    margin-bottom: 5px;
+
+    font-weight: 700;
+
+    color: var(--black);
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    background-color: var(--white);
+
+    color: var(--black);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 213, 201, 0.45);
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+form .btn {
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+
+/* ---------- CTA Section ---------- */
+
+.cta {
+    background-color: var(--pink);
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+.cta h2 {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+
+    color: var(--black);
+}
+
+.cta p {
+    margin-bottom: 20px;
+
+    color: var(--black);
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    background-color: var(--light-pink);
+
+    color: var(--black);
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 14px;
+
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: var(--black);
+    margin-bottom: 0;
+}
+
+
+/* ---------- Gallery Images ---------- */
+
+.gallery img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 10px;
+}
+
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 768px) {
+
+    /* Navigation */
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+
+        gap: 10px 15px;
+    }
+
+    /* Hero */
+
+    .hero {
+        min-height: 350px;
+
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+
+        line-height: 1.15;
+    }
+
+    .hero p {
+        font-size: 17px;
+
+        line-height: 1.6;
+    }
+
+    /* Sections */
+
+    .section {
+        width: 90%;
+
+        padding: 50px 0;
+    }
+
+    /* Service cards */
+
+    .service-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact */
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Buttons */
+
+    .btn {
+        padding: 13px 22px;
+
+        min-height: 46px;
+    }
+}
+
+
+/* ---------- Small Mobile Screens ---------- */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .service-card {
+        padding: 24px;
+    }
+
+    .btn {
+        width: auto;
+        padding: 13px 20px;
+    }
+}
