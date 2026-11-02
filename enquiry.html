@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Request a mobile waxing appointment with Prime Pele in Cape Town. Choose your service, view prices and enquire about availability.">
+
+    <title>Appointment Enquiry | Prime Pele Cape Town</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <div class="logo">PRIME PELE</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    PRIME PELE | APPOINTMENTS
+                </p>
+
+                <h1>Appointment Enquiry</h1>
+
+                <p>
+                    Choose your waxing service and tell us
+                    when you would like your appointment.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Enquiry Section -->
+        <section class="section">
+
+            <div class="section-title">
+
+                <h2>REQUEST A SERVICE</h2>
+
+                <p>
+                    Complete the form below to prepare
+                    your appointment enquiry.
+                </p>
+
+            </div>
+
+            <div class="contact-container">
+
+                <!-- Service Information -->
+                <div class="service-card">
+
+                    <h3>Our Waxing Prices</h3>
+
+                    <p>Full Leg Wax — R250</p>
+                    <p>Half Leg Wax — R200</p>
+                    <p>Underarm Wax — R120</p>
+                    <p>Arm Wax — R200</p>
+                    <p>Bikini Wax — R150</p>
+                    <p>Custom Service — Price on request</p>
+
+                    <p>
+                        <strong>Service area:</strong>
+                        Cape Town, South Africa.
+                    </p>
+
+                    <p>
+                        All appointments are subject to
+                        availability and confirmation.
+                    </p>
+
+                </div>
+
+                <!-- Enquiry Form -->
+                <div class="service-card">
+
+                    <h3>Appointment Details</h3>
+
+                    <form id="enquiryForm">
+
+                        <label for="enquiryName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="enquiryName"
+                            name="name"
+                            autocomplete="name"
+                            required>
+
+                        <label for="enquiryEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="enquiryEmail"
+                            name="email"
+                            autocomplete="email"
+                            required>
+
+                        <label for="enquiryService">
+                            Select Service
+                        </label>
+
+                        <select
+                            id="enquiryService"
+                            name="service"
+                            required>
+
+                            <option value="">
+                                Choose a service
+                            </option>
+
+                            <option value="Full Leg Wax">
+                                Full Leg Wax
+                            </option>
+
+                            <option value="Half Leg Wax">
+                                Half Leg Wax
+                            </option>
+
+                            <option value="Underarm Wax">
+                                Underarm Wax
+                            </option>
+
+                            <option value="Arm Wax">
+                                Arm Wax
+                            </option>
+
+                            <option value="Bikini Wax">
+                                Bikini Wax
+                            </option>
+
+                            <option value="Custom Service">
+                                Custom Service
+                            </option>
+
+                        </select>
+
+                        <p id="enquiryPrice"
+                           role="status"
+                           aria-live="polite">
+                            Select a service to view its price.
+                        </p>
+
+                        <label for="enquiryDate">
+                            Preferred Appointment Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="enquiryDate"
+                            name="preferredDate"
+                            required>
+
+                        <label for="enquiryMessage">
+                            Additional Information
+                        </label>
+
+                        <textarea
+                            id="enquiryMessage"
+                            name="message"
+                            rows="5"
+                            placeholder="Tell us your preferred time, area or any special requests."></textarea>
+
+                        <button type="submit" class="btn">
+                            PREPARE ENQUIRY EMAIL
+                        </button>
+
+                        <p id="enquiryStatus"
+                           role="status"
+                           aria-live="polite"></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="cta">
+
+            <h2>Have a General Question?</h2>
+
+            <p>
+                Visit our contact page to send
+                a general message.
+            </p>
+
+            <a href="contact.html" class="btn">
+                CONTACT US
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Prime Pele | Mobile Waxing.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,10 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Pele | Contact Us</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Contact Prime Pele Mobile Waxing in Cape Town for general questions, service information and professional mobile beauty enquiries.">
+
+    <title>Contact Us | Prime Pele Mobile Waxing Cape Town</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,150 +19,216 @@
 
     <!-- Header -->
     <header>
-        <nav class="navbar">
+
+        <nav class="navbar" aria-label="Main navigation">
 
             <div class="logo">PRIME PELE</div>
 
-           <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-</ul>
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+
+                <li>
+                    <a href="contact.html"
+                       class="active"
+                       aria-current="page">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
 
         </nav>
+
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
+    <main>
 
-        <div class="hero-content">
-            <h1>CONTACT US</h1>
-            <p>We would love to hear from you</p>
-        </div>
+        <!-- Hero -->
+        <section class="hero">
 
-    </section>
+            <div class="hero-content">
 
-    <!-- Contact Section -->
-    <section class="section">
+                <h1>CONTACT US</h1>
 
-        <div class="section-title">
-            <h2>GET IN TOUCH</h2>
+                <p>We would love to hear from you</p>
 
-            <p>
-                Have a question or would like to request an appointment?
-                Send us a message using the form below.
-            </p>
-        </div>
+            </div>
 
-        <div class="contact-container">
+        </section>
 
-            <!-- Contact Information -->
-            <div class="service-card">
+        <!-- Contact Section -->
+        <section class="section">
 
-                <h3>Contact Information</h3>
+            <div class="section-title">
+
+                <h2>GET IN TOUCH</h2>
 
                 <p>
-                    <strong>Business:</strong><br>
-                    Prime Pele | Mobile Waxing
-                </p>
-
-                <p>
-                    <strong>Location:</strong><br>
-                    Cape Town, South Africa
-                </p>
-
-                <p>
-                    <strong>Service:</strong><br>
-                    Mobile waxing at client's homes
-                </p>
-
-                <p>
-                    <strong>WhatsApp:</strong><br>
-                    Available for appointment enquiries
+                    Have a question about Prime Pele?
+                    Send us a message using the form below.
                 </p>
 
             </div>
 
-            <!-- Contact Form -->
-            <div class="service-card">
+            <div class="contact-container">
 
-                <h3>Appointment Enquiry</h3>
+                <!-- Contact Information -->
+                <div class="service-card">
 
-                <form id="contactForm">
+                    <h3>Contact Information</h3>
 
-                    <label for="name">Full Name</label>
+                    <p>
+                        <strong>Business:</strong><br>
+                        Prime Pele | Mobile Waxing
+                    </p>
 
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your full name"
-                        required
-                    >
+                    <p>
+                        <strong>Location:</strong><br>
+                        Cape Town, South Africa
+                    </p>
 
-                    <label for="email">Email Address</label>
+                    <p>
+                        <strong>Service:</strong><br>
+                        Mobile waxing at clients' homes
+                    </p>
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                    >
+                    <p>
+                        <strong>Appointments:</strong><br>
+                        For service bookings and availability,
+                        please use our appointment enquiry form.
+                    </p>
 
-                    <label for="service">Service</label>
+                    <a href="enquiry.html" class="btn">
+                        REQUEST AN APPOINTMENT
+                    </a>
 
-                    <select id="service" name="service" required>
+                </div>
 
-                        <option value="">Select a service</option>
-                        <option value="Full Leg Wax">Full Leg Wax</option>
-                        <option value="Half Leg Wax">Half Leg Wax</option>
-                        <option value="Underarm Wax">Underarm Wax</option>
-                        <option value="Arm Wax">Arm Wax</option>
-                        <option value="Bikini Wax">Bikini Wax</option>
+                <!-- General Contact Form -->
+                <div class="service-card">
 
-                    </select>
+                    <h3>Send Us a Message</h3>
 
-                    <label for="message">Message</label>
+                    <form id="contactForm">
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Enter your message"
-                        required>
-                    </textarea>
+                        <label for="name">
+                            Full Name
+                        </label>
 
-                    <button type="submit" class="btn">
-                        SEND ENQUIRY
-                    </button>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required>
 
-                </form>
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required>
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="What is your message about?"
+                            required>
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your message here..."
+                            required></textarea>
+
+                        <button type="submit" class="btn">
+                            PREPARE EMAIL
+                        </button>
+
+                        <p id="contactStatus"
+                           role="status"
+                           aria-live="polite"></p>
+
+                    </form>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        
+<!-- Interactive Service Area Map -->
+<section class="section">
 
-    <!-- WhatsApp Section -->
-    <section class="cta">
-
-        <h2>Prefer WhatsApp?</h2>
-
+    <div class="section-title">
+        <h2>OUR SERVICE AREA</h2>
         <p>
-            Contact Prime Pele directly for appointment enquiries
-            and additional information.
+            Prime Pele provides mobile waxing services
+            in Cape Town and selected surrounding areas.
+            Contact us to confirm availability in your area.
+        </p>
+    </div>
+
+    <div class="map-container">
+
+        <iframe
+            title="Map showing Cape Town, Prime Pele's general service area"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=18.30%2C-34.10%2C18.65%2C-33.75&amp;layer=mapnik&amp;marker=-33.9249%2C18.4241"
+            width="100%"
+            height="400"
+            style="border:0;"
+            loading="lazy">
+        </iframe>
+
+        <p class="map-note">
+            Map indicates Cape Town as a general service area,
+            not a physical business address.
         </p>
 
-        <!-- Replace # with the real WhatsApp link when available -->
-        <a href="#" class="btn">CHAT ON WHATSAPP</a>
+    </div>
 
-    </section>
+</section>
+
+        <!-- Appointment Section -->
+        <section class="cta">
+
+            <h2>Looking to Book a Waxing Service?</h2>
+
+            <p>
+                Explore our treatments and submit an
+                appointment enquiry.
+            </p>
+
+            <a href="enquiry.html" class="btn">
+                MAKE AN ENQUIRY
+            </a>
+
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>

@@ -1,10 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Services | Prime Pele</title>
+    <meta name="description"
+          content="Explore Prime Pele mobile waxing services in Cape Town, including full leg, half leg, underarm, arm and bikini waxing, with prices.">
+
+    <title>Waxing Services & Prices | Prime Pele Cape Town</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,27 +18,33 @@
 
     <!-- Header -->
     <header>
-        <nav>
+        <nav class="navbar" aria-label="Main navigation">
 
             <div class="logo">
                 Prime Pele
             </div>
 
-<ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="testimonials.html">Testimonials</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="contact.html">Contact</a></li>
-</ul>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+
+                <li>
+                    <a href="services.html"
+                       class="active"
+                       aria-current="page">
+                        Services
+                    </a>
+                </li>
+
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
 
         </nav>
     </header>
 
-
-    <!-- Main Content -->
     <main>
 
         <!-- Page Introduction -->
@@ -58,7 +69,6 @@
 
         </section>
 
-
         <!-- Services -->
         <section class="services-preview">
 
@@ -70,11 +80,65 @@
                 convenience.
             </p>
 
+            <!-- Search and Filter Controls -->
+            <div class="service-search">
 
-            <div class="service-container">
+                <label for="serviceSearch">
+                    Search for a waxing service
+                </label>
+
+                <input
+                    type="search"
+                    id="serviceSearch"
+                    placeholder="Search by service name..."
+                    autocomplete="off"
+                    aria-controls="serviceList">
+
+                <label for="priceFilter">
+                    Filter by price
+                </label>
+
+                <select id="priceFilter"
+                        aria-controls="serviceList">
+
+                    <option value="all">
+                        All Services
+                    </option>
+
+                    <option value="under150">
+                        R150 or less
+                    </option>
+
+                    <option value="151to200">
+                        R151 - R200
+                    </option>
+
+                    <option value="above200">
+                        Above R200
+                    </option>
+
+                    <option value="custom">
+                        Custom Services
+                    </option>
+
+                </select>
+
+                <p id="serviceResults"
+                   role="status"
+                   aria-live="polite">
+                    Showing all 6 services.
+                </p>
+
+            </div>
+
+            <!-- Services Grid -->
+            <div class="service-container"
+                 id="serviceList">
 
                 <!-- Service 1 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="full leg wax"
+                         data-price="250">
 
                     <h3>Full Leg Wax</h3>
 
@@ -88,9 +152,10 @@
 
                 </article>
 
-
                 <!-- Service 2 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="half leg wax"
+                         data-price="200">
 
                     <h3>Half Leg Wax</h3>
 
@@ -103,9 +168,10 @@
 
                 </article>
 
-
                 <!-- Service 3 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="underarm wax"
+                         data-price="120">
 
                     <h3>Underarm Wax</h3>
 
@@ -118,9 +184,10 @@
 
                 </article>
 
-
                 <!-- Service 4 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="arm wax"
+                         data-price="200">
 
                     <h3>Arm Wax</h3>
 
@@ -133,9 +200,10 @@
 
                 </article>
 
-
                 <!-- Service 5 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="bikini wax"
+                         data-price="150">
 
                     <h3>Bikini Wax</h3>
 
@@ -148,9 +216,10 @@
 
                 </article>
 
-
                 <!-- Service 6 -->
-                <article class="service-card">
+                <article class="service-card"
+                         data-service="custom service"
+                         data-price="custom">
 
                     <h3>Custom Service</h3>
 
@@ -165,8 +234,13 @@
 
             </div>
 
-        </section>
+            <!-- No Results Message -->
+            <p id="noServiceResults" hidden>
+                No services match your search.
+                Please try another keyword or price range.
+            </p>
 
+        </section>
 
         <!-- Booking CTA -->
         <section class="cta">
@@ -178,14 +252,13 @@
                 mobile waxing services.
             </p>
 
-            <a href="contact.html" class="button">
+            <a href="contact.html" class="btn">
                 Book Your Appointment
             </a>
 
         </section>
 
     </main>
-
 
     <!-- Footer -->
     <footer>
@@ -200,7 +273,6 @@
         </p>
 
     </footer>
-
 
     <script src="js/script.js"></script>
 
