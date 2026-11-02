@@ -1,3 +1,8 @@
 
 User-agent: *
 Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ellendecassia.github.io/PrimePeleWebsite/sitemap.xml

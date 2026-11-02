@@ -80,3 +80,12 @@ Prime Pele | Mobile Waxing website throughout the project.
 - Added pages for Home, About, Services, Gallery,
   Testimonials, FAQ, and Contact.
 - Added initial website content and navigation links.
+
+### Technical SEO and Deployment
+
+- Created robots.txt to allow search engine crawling.
+- Created sitemap.xml listing the website's public pages.
+- Added the sitemap location to robots.txt.
+- Published the website using GitHub Pages.
+- Configured deployment from the master branch.
+- Added .nojekyll for static website deployment.
