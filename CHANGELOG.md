@@ -89,3 +89,30 @@ Prime Pele | Mobile Waxing website throughout the project.
 - Published the website using GitHub Pages.
 - Configured deployment from the master branch.
 - Added .nojekyll for static website deployment.
+
+
+## Part 3 - AJAX Forms and Final Improvements
+
+### AJAX Functionality
+- Replaced mailto-based form submissions with AJAX.
+- Implemented asynchronous form submission using JavaScript Fetch API.
+- Integrated FormSubmit for email delivery.
+- Added success and error messages without page reload.
+- Added submit button disabling during submission.
+
+### Contact Form
+- Implemented AJAX submission for general enquiries.
+- Added required field validation.
+- Added basic spam protection.
+
+### Appointment Enquiry Form
+- Implemented AJAX submission for appointment requests.
+- Added dynamic service price display.
+- Added preferred date validation.
+- Added submission status messages.
+- Clarified that appointment enquiries are subject to confirmation.
+
+### Testing
+- Successfully tested AJAX email submission and delivery.
+- Confirmed successful email receipt.
+- Prepared website for final functionality testing.

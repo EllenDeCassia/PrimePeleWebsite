@@ -110,13 +110,32 @@
 
                 </div>
 
-                <!-- General Contact Form -->
+                <!-- AJAX Contact Form -->
                 <div class="service-card">
 
                     <h3>Send Us a Message</h3>
 
-                    <form id="contactForm">
+                    <form
+                        id="contactForm"
+                        action="https://formsubmit.co/ajax/cptbeautyccn@gmail.com"
+                        method="POST">
 
+                        <!-- Email subject -->
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="Prime Pele - New Contact Message">
+
+                        <!-- Spam protection -->
+                        <input
+                            type="text"
+                            name="_honey"
+                            tabindex="-1"
+                            autocomplete="off"
+                            aria-hidden="true"
+                            style="display:none;">
+
+                        <!-- Full Name -->
                         <label for="name">
                             Full Name
                         </label>
@@ -129,6 +148,7 @@
                             autocomplete="name"
                             required>
 
+                        <!-- Email -->
                         <label for="email">
                             Email Address
                         </label>
@@ -141,6 +161,7 @@
                             autocomplete="email"
                             required>
 
+                        <!-- Subject -->
                         <label for="subject">
                             Subject
                         </label>
@@ -152,6 +173,7 @@
                             placeholder="What is your message about?"
                             required>
 
+                        <!-- Message -->
                         <label for="message">
                             Message
                         </label>
@@ -163,13 +185,20 @@
                             placeholder="Write your message here..."
                             required></textarea>
 
-                        <button type="submit" class="btn">
-                            PREPARE EMAIL
+                        <!-- Submit Button -->
+                        <button
+                            type="submit"
+                            class="btn"
+                            id="contactSubmit">
+                            SEND MESSAGE
                         </button>
 
-                        <p id="contactStatus"
-                           role="status"
-                           aria-live="polite"></p>
+                        <!-- AJAX Response Message -->
+                        <p
+                            id="contactStatus"
+                            role="status"
+                            aria-live="polite">
+                        </p>
 
                     </form>
 
@@ -179,38 +208,40 @@
 
         </section>
 
-        
-<!-- Interactive Service Area Map -->
-<section class="section">
+        <!-- Interactive Service Area Map -->
+        <section class="section">
 
-    <div class="section-title">
-        <h2>OUR SERVICE AREA</h2>
-        <p>
-            Prime Pele provides mobile waxing services
-            in Cape Town and selected surrounding areas.
-            Contact us to confirm availability in your area.
-        </p>
-    </div>
+            <div class="section-title">
 
-    <div class="map-container">
+                <h2>OUR SERVICE AREA</h2>
 
-        <iframe
-            title="Map showing Cape Town, Prime Pele's general service area"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=18.30%2C-34.10%2C18.65%2C-33.75&amp;layer=mapnik&amp;marker=-33.9249%2C18.4241"
-            width="100%"
-            height="400"
-            style="border:0;"
-            loading="lazy">
-        </iframe>
+                <p>
+                    Prime Pele provides mobile waxing services
+                    in Cape Town and selected surrounding areas.
+                    Contact us to confirm availability in your area.
+                </p>
 
-        <p class="map-note">
-            Map indicates Cape Town as a general service area,
-            not a physical business address.
-        </p>
+            </div>
 
-    </div>
+            <div class="map-container">
 
-</section>
+                <iframe
+                    title="Map showing Cape Town, Prime Pele's general service area"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=18.30%2C-34.10%2C18.65%2C-33.75&amp;layer=mapnik&amp;marker=-33.9249%2C18.4241"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    loading="lazy">
+                </iframe>
+
+                <p class="map-note">
+                    Map indicates Cape Town as a general service area,
+                    not a physical business address.
+                </p>
+
+            </div>
+
+        </section>
 
         <!-- Appointment Section -->
         <section class="cta">
@@ -240,6 +271,7 @@
 
     </footer>
 
+    <!-- Main JavaScript: AJAX, FAQ, Gallery and Filters -->
     <script src="js/script.js"></script>
 
 </body>

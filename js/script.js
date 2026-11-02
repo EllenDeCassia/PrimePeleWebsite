@@ -1,112 +1,103 @@
 
 /* =========================================
    PRIME PELE | MOBILE WAXING
-   Website JavaScript
+   Website JavaScript - Part 3
    ========================================= */
 
 
 /* =========================================
-   CONTACT FORM
-   Validation and Email Preparation
+   CONTACT FORM - AJAX
    ========================================= */
 
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function(event) {
+    const contactStatus = document.getElementById("contactStatus");
+    const contactSubmit = document.getElementById("contactSubmit");
+
+    contactForm.addEventListener("submit", async function(event) {
 
         event.preventDefault();
 
-        const nameField = document.getElementById("name");
-        const emailField = document.getElementById("email");
-        const subjectField = document.getElementById("subject");
-        const messageField = document.getElementById("message");
-        const contactStatus = document.getElementById("contactStatus");
-
-        const name = nameField.value.trim();
-        const email = emailField.value.trim();
-        const subject = subjectField.value.trim();
-        const message = messageField.value.trim();
-
-        // Validate full name
-        if (name === "") {
-            alert("Please enter your full name.");
-            nameField.focus();
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
             return;
         }
 
-        // Validate email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-        if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
-            emailField.focus();
-            return;
-        }
-
-        // Validate subject
-        if (subject === "") {
-            alert("Please enter a subject.");
-            subjectField.focus();
-            return;
-        }
-
-        // Validate message
-        if (message === "") {
-            alert("Please enter your message.");
-            messageField.focus();
-            return;
-        }
-
-        // Prime Pele business email
-        const businessEmail = "cptbeautyccn@gmail.com";
-
-        // Prepare email subject
-        const emailSubject = encodeURIComponent(
-            "Prime Pele Contact: " + subject
-        );
-
-        // Prepare email body
-        const emailBody = encodeURIComponent(
-            "Name: " + name + "\n" +
-            "Email: " + email + "\n\n" +
-            "Message:\n" + message
-        );
-
-        // Create email link
-        const mailtoLink =
-            "mailto:" + businessEmail +
-            "?subject=" + emailSubject +
-            "&body=" + emailBody;
-
-        // Explain the next step to the visitor
-        if (contactStatus) {
+        if (!name || !email || !subject || !message) {
             contactStatus.textContent =
-                "Your email is ready. Please complete " +
-                "the sending process in your email application.";
+                "Please complete all required fields.";
+            return;
         }
 
-        // Open the visitor's email application
-        window.location.href = mailtoLink;
+        const formData = new FormData(contactForm);
+
+        const submitButton = contactSubmit ||
+            contactForm.querySelector('button[type="submit"]');
+
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+        contactStatus.textContent = "Sending your message...";
+
+        try {
+
+            const response = await fetch(
+                "https://formsubmit.co/ajax/cptbeautyccn@gmail.com",
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Contact request failed.");
+            }
+
+            const result = await response.json();
+
+            if (result.success === true ||
+                result.success === "true") {
+
+                contactStatus.textContent =
+                    "Your message was submitted successfully!";
+
+                contactForm.reset();
+
+            } else {
+                throw new Error("Submission was not accepted.");
+            }
+
+        } catch (error) {
+
+            contactStatus.textContent =
+                "Unable to send your message. Please try again.";
+
+            console.error("Contact form error:", error);
+
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = "SEND MESSAGE";
+
+        }
 
     });
 
 }
 
-        // Validation only.
-        // Actual email submission will be added later.
-        alert(
-            "Thank you, " + name +
-            "! Your form is valid. Email submission " +
-            "is not yet configured."
-        );
 
-    });
-}
-
-
-/* ---------- FAQ Accordion ---------- */
+/* =========================================
+   FAQ ACCORDION
+   ========================================= */
 
 const faqItems = document.querySelectorAll(".faq-item");
 
@@ -134,17 +125,25 @@ if (faqItems.length > 0) {
 
 }
 
+
 /* =========================================
    GALLERY LIGHTBOX
-   Part 3 - Interactive Gallery
    ========================================= */
 
-const galleryTriggers = document.querySelectorAll(".gallery-trigger");
+const galleryTriggers =
+    document.querySelectorAll(".gallery-trigger");
 
-const galleryLightbox = document.getElementById("galleryLightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxCaption = document.getElementById("lightboxCaption");
-const closeLightboxButton = document.getElementById("closeLightbox");
+const galleryLightbox =
+    document.getElementById("galleryLightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxCaption =
+    document.getElementById("lightboxCaption");
+
+const closeLightboxButton =
+    document.getElementById("closeLightbox");
 
 if (
     galleryTriggers.length > 0 &&
@@ -202,16 +201,25 @@ if (
 
 }
 
+
 /* =========================================
    SERVICE SEARCH AND PRICE FILTER
-   Part 3 - DOM Manipulation
    ========================================= */
 
-const serviceSearch = document.getElementById("serviceSearch");
-const priceFilter = document.getElementById("priceFilter");
-const serviceList = document.getElementById("serviceList");
-const serviceResults = document.getElementById("serviceResults");
-const noServiceResults = document.getElementById("noServiceResults");
+const serviceSearch =
+    document.getElementById("serviceSearch");
+
+const priceFilter =
+    document.getElementById("priceFilter");
+
+const serviceList =
+    document.getElementById("serviceList");
+
+const serviceResults =
+    document.getElementById("serviceResults");
+
+const noServiceResults =
+    document.getElementById("noServiceResults");
 
 if (
     serviceSearch &&
@@ -221,51 +229,61 @@ if (
     noServiceResults
 ) {
 
-    const serviceCards = serviceList.querySelectorAll(".service-card");
+    const serviceCards =
+        serviceList.querySelectorAll(".service-card");
 
     function filterServices() {
 
-        const searchTerm = serviceSearch.value.toLowerCase().trim();
+        const searchTerm =
+            serviceSearch.value.toLowerCase().trim();
+
         const selectedPrice = priceFilter.value;
 
         let visibleCount = 0;
 
         serviceCards.forEach(function(card) {
 
-            const serviceName = card.dataset.service || "";
+            const serviceName =
+                (card.dataset.service || "").toLowerCase();
+
             const priceValue = card.dataset.price || "";
 
-            const matchesSearch = serviceName.includes(searchTerm);
+            const matchesSearch =
+                serviceName.includes(searchTerm);
 
             let matchesPrice = false;
 
             if (selectedPrice === "all") {
+
                 matchesPrice = true;
-            }
 
-            else if (selectedPrice === "custom") {
+            } else if (selectedPrice === "custom") {
+
                 matchesPrice = priceValue === "custom";
-            }
 
-            else if (priceValue !== "custom") {
+            } else if (priceValue !== "custom") {
 
                 const price = Number(priceValue);
 
                 if (selectedPrice === "under150") {
+
                     matchesPrice = price <= 150;
-                }
 
-                else if (selectedPrice === "151to200") {
-                    matchesPrice = price >= 151 && price <= 200;
-                }
+                } else if (selectedPrice === "151to200") {
 
-                else if (selectedPrice === "above200") {
+                    matchesPrice =
+                        price >= 151 && price <= 200;
+
+                } else if (selectedPrice === "above200") {
+
                     matchesPrice = price > 200;
+
                 }
 
             }
 
-            const shouldShow = matchesSearch && matchesPrice;
+            const shouldShow =
+                matchesSearch && matchesPrice;
 
             card.hidden = !shouldShow;
 
@@ -284,31 +302,44 @@ if (
     }
 
     serviceSearch.addEventListener("input", filterServices);
-
     priceFilter.addEventListener("change", filterServices);
 
     filterServices();
 
 }
 
+
 /* =========================================
-   APPOINTMENT ENQUIRY FORM
-   Part 3 - Dynamic Prices and Validation
+   APPOINTMENT ENQUIRY FORM - AJAX
+   Dynamic Prices and Validation
    ========================================= */
 
-const enquiryForm = document.getElementById("enquiryForm");
+const enquiryForm =
+    document.getElementById("enquiryForm");
 
 if (enquiryForm) {
 
-    const enquiryName = document.getElementById("enquiryName");
-    const enquiryEmail = document.getElementById("enquiryEmail");
-    const enquiryService = document.getElementById("enquiryService");
-    const enquiryDate = document.getElementById("enquiryDate");
-    const enquiryMessage = document.getElementById("enquiryMessage");
-    const enquiryPrice = document.getElementById("enquiryPrice");
-    const enquiryStatus = document.getElementById("enquiryStatus");
+    const enquiryName =
+        document.getElementById("enquiryName");
 
-    // Service price information
+    const enquiryEmail =
+        document.getElementById("enquiryEmail");
+
+    const enquiryService =
+        document.getElementById("enquiryService");
+
+    const enquiryDate =
+        document.getElementById("enquiryDate");
+
+    const enquiryMessage =
+        document.getElementById("enquiryMessage");
+
+    const enquiryPrice =
+        document.getElementById("enquiryPrice");
+
+    const enquiryStatus =
+        document.getElementById("enquiryStatus");
+
     const servicePrices = {
         "Full Leg Wax": 250,
         "Half Leg Wax": 200,
@@ -318,44 +349,60 @@ if (enquiryForm) {
         "Custom Service": null
     };
 
-    // Format local date as YYYY-MM-DD
     function getLocalDateString(date) {
+
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
+
+        const month =
+            String(date.getMonth() + 1).padStart(2, "0");
+
+        const day =
+            String(date.getDate()).padStart(2, "0");
 
         return year + "-" + month + "-" + day;
+
     }
 
-    // Prevent selection of past dates
     enquiryDate.min = getLocalDateString(new Date());
 
-    // Display price when service changes
     enquiryService.addEventListener("change", function() {
 
         const selectedService = enquiryService.value;
 
         if (selectedService === "") {
+
             enquiryPrice.textContent =
                 "Select a service to view its price.";
-        }
 
-        else if (selectedService === "Custom Service") {
+        } else if (selectedService === "Custom Service") {
+
             enquiryPrice.textContent =
                 "Price: Available on request.";
-        }
 
-        else {
+        } else if (
+            Object.prototype.hasOwnProperty.call(
+                servicePrices,
+                selectedService
+            )
+        ) {
+
             enquiryPrice.textContent =
                 "Price: R" + servicePrices[selectedService];
+
+        } else {
+
+            enquiryPrice.textContent =
+                "Please select a valid service.";
+
         }
 
     });
 
-    // Validate and prepare appointment enquiry
-    enquiryForm.addEventListener("submit", function(event) {
+    enquiryForm.addEventListener("submit", async function(event) {
 
         event.preventDefault();
+
+        enquiryDate.min = getLocalDateString(new Date());
 
         const name = enquiryName.value.trim();
         const email = enquiryEmail.value.trim();
@@ -363,16 +410,16 @@ if (enquiryForm) {
         const date = enquiryDate.value;
         const message = enquiryMessage.value.trim();
 
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (name === "") {
-            alert("Please enter your full name.");
+        if (!name) {
+            enquiryStatus.textContent =
+                "Please enter your full name.";
             enquiryName.focus();
             return;
         }
 
-        if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
+        if (!enquiryEmail.validity.valid || !email) {
+            enquiryStatus.textContent =
+                "Please enter a valid email address.";
             enquiryEmail.focus();
             return;
         }
@@ -380,53 +427,113 @@ if (enquiryForm) {
         if (!Object.prototype.hasOwnProperty.call(
             servicePrices, service
         )) {
-            alert("Please select a valid service.");
+
+            enquiryStatus.textContent =
+                "Please select a valid service.";
+
             enquiryService.focus();
             return;
         }
 
-        if (date === "" || date < getLocalDateString(new Date())) {
-            alert("Please select today or a future date.");
+        if (
+            !date ||
+            date < getLocalDateString(new Date())
+        ) {
+
+            enquiryStatus.textContent =
+                "Please select today or a future date.";
+
             enquiryDate.focus();
             return;
         }
 
-        // Determine selected service price
+        if (!enquiryForm.checkValidity()) {
+            enquiryForm.reportValidity();
+            return;
+        }
+
         const price = servicePrices[service] === null
             ? "Price on request"
             : "R" + servicePrices[service];
 
-        // Prepare email details
-        const emailSubject = encodeURIComponent(
+        const formData = new FormData(enquiryForm);
+
+        // Include all relevant appointment information
+        formData.set("name", name);
+        formData.set("email", email);
+        formData.set("service", service);
+        formData.set("preferred_date", date);
+        formData.set("estimated_price", price);
+        formData.set("message", message || "None provided");
+
+        formData.set(
+            "_subject",
             "Prime Pele Appointment Enquiry - " + service
         );
 
-        const emailBody = encodeURIComponent(
-            "APPOINTMENT ENQUIRY\n\n" +
-            "Full Name: " + name + "\n" +
-            "Email: " + email + "\n" +
-            "Service: " + service + "\n" +
-            "Price: " + price + "\n" +
-            "Preferred Date: " + date + "\n\n" +
-            "Additional Information:\n" +
-            (message || "None provided") + "\n\n" +
-            "Please confirm availability and any " +
-            "additional charges before booking."
-        );
+        const submitButton =
+            enquiryForm.querySelector('button[type="submit"]');
 
-        const mailtoLink =
-            "mailto:cptbeautyccn@gmail.com" +
-            "?subject=" + emailSubject +
-            "&body=" + emailBody;
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
 
         enquiryStatus.textContent =
-            "Your enquiry email is ready. Please complete " +
-            "the sending process in your email application. " +
-            "Your appointment is not yet confirmed.";
+            "Submitting your appointment enquiry...";
 
-        window.location.href = mailtoLink;
+        try {
+
+            const response = await fetch(
+                "https://formsubmit.co/ajax/cptbeautyccn@gmail.com",
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Enquiry request failed.");
+            }
+
+            const result = await response.json();
+
+            if (
+                result.success === true ||
+                result.success === "true"
+            ) {
+
+                enquiryStatus.textContent =
+                    "Your appointment enquiry was submitted. " +
+                    "Your appointment is not yet confirmed.";
+
+                enquiryForm.reset();
+
+                enquiryPrice.textContent =
+                    "Select a service to view its price.";
+
+            } else {
+
+                throw new Error("Submission was not accepted.");
+
+            }
+
+        } catch (error) {
+
+            enquiryStatus.textContent =
+                "Unable to submit your enquiry. " +
+                "Please try again.";
+
+            console.error("Enquiry form error:", error);
+
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent = "SUBMIT ENQUIRY";
+
+        }
 
     });
 
 }
-

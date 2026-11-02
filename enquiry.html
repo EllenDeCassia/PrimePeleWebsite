@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -25,6 +26,7 @@
             <div class="logo">PRIME PELE</div>
 
             <ul class="nav-links">
+
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -32,6 +34,7 @@
                 <li><a href="testimonials.html">Testimonials</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html">Contact</a></li>
+
             </ul>
 
         </nav>
@@ -68,7 +71,7 @@
                 <h2>REQUEST A SERVICE</h2>
 
                 <p>
-                    Complete the form below to prepare
+                    Complete the form below to submit
                     your appointment enquiry.
                 </p>
 
@@ -100,13 +103,32 @@
 
                 </div>
 
-                <!-- Enquiry Form -->
+                <!-- AJAX Enquiry Form -->
                 <div class="service-card">
 
                     <h3>Appointment Details</h3>
 
-                    <form id="enquiryForm">
+                    <form
+                        id="enquiryForm"
+                        action="https://formsubmit.co/ajax/cptbeautyccn@gmail.com"
+                        method="POST">
 
+                        <!-- Email Subject -->
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="Prime Pele - New Appointment Enquiry">
+
+                        <!-- Spam Protection -->
+                        <input
+                            type="text"
+                            name="_honey"
+                            tabindex="-1"
+                            autocomplete="off"
+                            aria-hidden="true"
+                            style="display:none;">
+
+                        <!-- Full Name -->
                         <label for="enquiryName">
                             Full Name
                         </label>
@@ -115,9 +137,11 @@
                             type="text"
                             id="enquiryName"
                             name="name"
+                            placeholder="Enter your full name"
                             autocomplete="name"
                             required>
 
+                        <!-- Email Address -->
                         <label for="enquiryEmail">
                             Email Address
                         </label>
@@ -126,9 +150,11 @@
                             type="email"
                             id="enquiryEmail"
                             name="email"
+                            placeholder="Enter your email address"
                             autocomplete="email"
                             required>
 
+                        <!-- Service Selection -->
                         <label for="enquiryService">
                             Select Service
                         </label>
@@ -168,12 +194,15 @@
 
                         </select>
 
-                        <p id="enquiryPrice"
-                           role="status"
-                           aria-live="polite">
+                        <!-- Dynamic Price -->
+                        <p
+                            id="enquiryPrice"
+                            role="status"
+                            aria-live="polite">
                             Select a service to view its price.
                         </p>
 
+                        <!-- Preferred Date -->
                         <label for="enquiryDate">
                             Preferred Appointment Date
                         </label>
@@ -184,6 +213,7 @@
                             name="preferredDate"
                             required>
 
+                        <!-- Additional Information -->
                         <label for="enquiryMessage">
                             Additional Information
                         </label>
@@ -194,13 +224,20 @@
                             rows="5"
                             placeholder="Tell us your preferred time, area or any special requests."></textarea>
 
-                        <button type="submit" class="btn">
-                            PREPARE ENQUIRY EMAIL
+                        <!-- Submit Button -->
+                        <button
+                            type="submit"
+                            class="btn"
+                            id="enquirySubmit">
+                            SUBMIT ENQUIRY
                         </button>
 
-                        <p id="enquiryStatus"
-                           role="status"
-                           aria-live="polite"></p>
+                        <!-- AJAX Response -->
+                        <p
+                            id="enquiryStatus"
+                            role="status"
+                            aria-live="polite">
+                        </p>
 
                     </form>
 
@@ -238,7 +275,9 @@
 
     </footer>
 
+    <!-- Main JavaScript -->
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

@@ -230,3 +230,78 @@ listed here with their original sources.
 
 The reference list will be completed before
 final submission.
+
+
+## Part 3 - Enhancing Functionality and SEO
+
+### Live Website
+
+The Prime Pele website is published using GitHub Pages.
+
+Website:
+https://ellendecassia.github.io/PrimePeleWebsite/
+
+GitHub Repository:
+https://github.com/EllenDeCassia/PrimePeleWebsite
+
+### JavaScript Functionality
+
+The following interactive features were implemented:
+
+- FAQ accordion with expandable questions and answers.
+- Interactive image gallery with a lightbox.
+- Service search functionality.
+- Price filtering for waxing services.
+- Dynamic service price display.
+- Appointment date validation.
+- DOM manipulation and event handling.
+
+### AJAX Form Functionality
+
+Two separate forms were developed:
+
+1. Contact Form
+   - General customer enquiries.
+   - Required field validation.
+   - AJAX submission using the Fetch API.
+   - Success and error feedback.
+
+2. Appointment Enquiry Form
+   - Service selection.
+   - Dynamic price display.
+   - Preferred appointment date validation.
+   - AJAX submission using the Fetch API.
+   - Appointment confirmation disclaimer.
+
+FormSubmit is used to process form submissions
+and deliver messages to the business email.
+
+### Search Engine Optimisation (SEO)
+
+- Descriptive page titles.
+- Meta descriptions.
+- Semantic HTML structure.
+- Image alternative text.
+- robots.txt.
+- sitemap.xml.
+- Mobile-responsive layout.
+
+### Deployment
+
+The website is hosted using GitHub Pages
+and deployed from the master branch.
+
+### Testing
+
+- Tested website navigation.
+- Tested interactive JavaScript functionality.
+- Tested AJAX form submission and email delivery.
+- Tested the published website.
+- Checked responsive layout and accessibility features.
+
+### Project Documentation
+
+- README.md
+- CHANGELOG.md
+- REFERENCES.md
+- Screenshots folder
